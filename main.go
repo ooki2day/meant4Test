@@ -2,8 +2,8 @@ package main
 
 import (
 	"bufio"
+	"github.com/ooki2day/meant4Test/server"
 	"log"
-	"meant4/server"
 	"net/http"
 	"os"
 	"strings"
@@ -36,7 +36,7 @@ func main() {
 		reader := bufio.NewReader(os.Stdin)
 		text, _ := reader.ReadString('\n')
 
-		if strings.Compare(strings.ToLower(text[0:4]), "stop") == 0 {
+		if (len(text) > 3) && (strings.Compare(strings.ToLower(text[0:4]), "stop") == 0) {
 			srv.Stop()
 			break
 		}
